@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Products - CatNibbles</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #034c53;">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">CatNibbles</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="cart.html">
+              <button class="btn btn-outline-light">Cart</button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Our Full Product List</h2>
+      <div class="row g-4" id="product-list">
+        <!-- JS will insert products here -->
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 CatNibbles. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const products = [
+      { name: "Tuna Delight", img: "images/product1.jpg" },
+      { name: "Chicken Feast", img: "images/product2.jpg" },
+      { name: "Salmon Supreme", img: "images/product3.jpg" },
+      { name: "Beef Bites", img: "images/product4.jpg" },
+      { name: "Ocean Mix", img: "images/product5.jpg" },
+      { name: "Liver Treats", img: "images/product6.jpg" },
+      { name: "Grilled Mackerel", img: "images/product7.jpg" },
+      { name: "Turkey Tender", img: "images/product8.jpg" },
+      { name: "Duck Delight", img: "images/product9.jpg" },
+      { name: "Rabbit Recipe", img: "images/product10.jpg" }
+    ];
+
+    const container = document.getElementById("product-list");
+    products.forEach(product => {
+      const col = document.createElement("div");
+      col.className = "col-md-4";
+
+      col.innerHTML = `
+        <div class="card h-100 shadow-sm hover-effect">
+          <img src="${product.img}" class="card-img-top" alt="${product.name}" />
+          <div class="card-body text-center">
+            <h5 class="card-title">${product.name}</h5>
+            <a href="product.html?productName=${encodeURIComponent(product.name)}" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      `;
+      container.appendChild(col);
+    });
+  </script>
+
+</body>
+</html>

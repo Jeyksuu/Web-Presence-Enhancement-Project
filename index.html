@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CatNibbles - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #034c53;">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">CatNibbles</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="cart.html">
+              <button class="btn btn-outline-light">Cart</button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-5 fw-bold">Welcome to CatNibbles</h1>
+      <p class="lead">Wholesome, tasty meals your cat will love.</p>
+    </div>
+  </header>
+
+  <!-- Featured Products -->
+  <section class="py-6">
+    <div class="container">
+      <h2 class="text-center mb-4">Featured Products</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm hover-effect">
+            <img src="images/product1.jpg" class="card-img-top" alt="Tuna Delight">
+            <div class="card-body text-center">
+              <h5 class="card-title">Tuna Delight</h5>
+              <a href="product.html?productName=Tuna%20Delight" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm hover-effect">
+            <img src="images/product2.jpg" class="card-img-top" alt="Chicken Feast">
+            <div class="card-body text-center">
+              <h5 class="card-title">Chicken Feast</h5>
+              <a href="product.html?productName=Chicken%20Feast" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm hover-effect">
+            <img src="images/product3.jpg" class="card-img-top" alt="Salmon Supreme">
+            <div class="card-body text-center">
+              <h5 class="card-title">Salmon Supreme</h5>
+              <a href="product.html?productName=Salmon%20Supreme" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="products.html" class="btn btn-success">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Info -->
+  <section class="bg-light py-4">
+    <div class="container text-center">
+      <h3>Contact Us</h3>
+      <p>Email: catnibbles@gmail.com | Phone: 0912 345 6789</p>
+      <p>123 Meow Street, Purr City</p>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 CatNibbles. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

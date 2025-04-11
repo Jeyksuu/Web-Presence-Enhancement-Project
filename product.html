@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - CatNibbles</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #034c53;">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">CatNibbles</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="cart.html">
+              <button class="btn btn-outline-light">Cart</button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Product Details Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img id="product-image" src="" class="img-fluid rounded" alt="Product Image">
+        </div>
+        <div class="col-md-6">
+          <h2 id="product-name" style="color: #034c53;"></h2>
+          <p id="product-price" class="fs-4 text-success"></p>
+          <p id="product-description"></p>
+          <button class="btn btn-success" id="add-to-cart">Add to Cart</button>
+          <a href="index.html" class="btn btn-primary mt-2">Back to Products</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 CatNibbles. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const products = [
+      { name: "Tuna Delight", price: "$9.99", img: "images/product1.jpg", description: "Delicious tuna chunks for your cat." },
+      { name: "Chicken Feast", price: "$8.49", img: "images/product2.jpg", description: "Succulent chicken pieces in gravy." },
+      { name: "Salmon Supreme", price: "$10.99", img: "images/product3.jpg", description: "High-quality salmon for your furry friend." },
+      { name: "Beef Bites", price: "$7.99", img: "images/product4.jpg", description: "Tasty beef pieces for the adventurous cat." },
+      { name: "Ocean Mix", price: "$11.49", img: "images/product5.jpg", description: "A mix of fish from the ocean for your cat." },
+      { name: "Liver Treats", price: "$6.99", img: "images/product6.jpg", description: "High-protein liver treats for your cat." },
+      { name: "Grilled Mackerel", price: "$12.99", img: "images/product7.jpg", description: "Grilled mackerel, packed with flavor." },
+      { name: "Turkey Tender", price: "$9.49", img: "images/product8.jpg", description: "Tender turkey bites for your cat." },
+      { name: "Duck Delight", price: "$10.49", img: "images/product9.jpg", description: "Delicious duck for the picky cat." },
+      { name: "Rabbit Recipe", price: "$13.99", img: "images/product10.jpg", description: "A healthy rabbit recipe for your feline." }
+    ];
+
+    // Get the product name from URL query params
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('productName');
+
+    // Find the product from the array
+    const product = products.find(p => p.name === productName);
+
+    // Display product details on the page
+    if (product) {
+      document.getElementById('product-image').src = product.img;
+      document.getElementById('product-name').textContent = product.name;
+      document.getElementById('product-price').textContent = product.price;
+      document.getElementById('product-description').textContent = product.description;
+
+      // Add to Cart functionality
+      document.getElementById('add-to-cart').addEventListener('click', function() {
+        addToCart(product);
+      });
+    }
+
+    function addToCart(product) {
+  // Get the cart from localStorage
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+  // Add the product to the cart
+  cart.push(product);
+  
+  // Save the updated cart to localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
+  
+  // Show the notification
+  const notification = document.getElementById('notification');
+  notification.textContent = `${product.name} has been added to your cart!`;
+  
+  // Display the notification and hide it after 3 seconds
+  notification.style.display = 'block';
+  setTimeout(function() {
+    notification.style.display = 'none';
+  }, 3000); // Hide after 3 seconds
+}
+  </script>
+<div id="notification" class="notification"></div>
+</body>
+</html>
